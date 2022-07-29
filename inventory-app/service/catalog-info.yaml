@@ -12,3 +12,5 @@ spec:
   system: inventory-app
   providesApis: 
     - api:inventory-api
+  consumesApis:
+    - api:counter-api
