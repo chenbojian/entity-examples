@@ -8,4 +8,4 @@ spec:
   lifecycle: production
   owner: bjchen
   definition:
-    $openapi: ./api-spec.yaml
+    $openapi: ./openapi.json

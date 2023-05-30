@@ -1,0 +1,1578 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "WorkRecordService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "version": "1.0"
+    },
+    "paths": {
+        "/work-records": {
+            "get": {
+                "tags": [
+                    "WorkRecord"
+                ],
+                "parameters": [
+                    {
+                        "name": "AssigneeId",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "EngagementId",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "EngagementIds",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "OfficeIds",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Years",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "CountryAbbr",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "StartDate",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    },
+                    {
+                        "name": "Top",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "Skip",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/WorkRecordService.Dtos.WorkRecordResponse"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/WorkRecordService.Dtos.WorkRecordResponse"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/WorkRecordService.Dtos.WorkRecordResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "WorkRecord"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/WorkRecordService.Dtos.WorkRecordCreateRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/WorkRecordService.Dtos.WorkRecordCreateRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/WorkRecordService.Dtos.WorkRecordCreateRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/WorkRecordService.Dtos.WorkRecordCreateRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/WorkRecordService.Dtos.WorkRecordResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/WorkRecordService.Dtos.WorkRecordResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/WorkRecordService.Dtos.WorkRecordResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/work-records/{id}": {
+            "get": {
+                "tags": [
+                    "WorkRecord"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/WorkRecordService.Dtos.WorkRecordResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/WorkRecordService.Dtos.WorkRecordResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/WorkRecordService.Dtos.WorkRecordResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/work-record-services/{id}/task-responsibilities": {
+            "post": {
+                "tags": [
+                    "WorkRecordService"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/WorkRecordService.Dtos.TaskResponsibilityRequest"
+                                }
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/WorkRecordService.Dtos.TaskResponsibilityRequest"
+                                }
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/WorkRecordService.Dtos.TaskResponsibilityRequest"
+                                }
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/WorkRecordService.Dtos.TaskResponsibilityRequest"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "WorkRecordService"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/WorkRecordService.Dtos.TaskResponsibilityRequestV2"
+                                }
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/WorkRecordService.Dtos.TaskResponsibilityRequestV2"
+                                }
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/WorkRecordService.Dtos.TaskResponsibilityRequestV2"
+                                }
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/WorkRecordService.Dtos.TaskResponsibilityRequestV2"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "WorkRecordService"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/WorkRecordService.Dtos.TaskResponsibilityResponse"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/WorkRecordService.Dtos.TaskResponsibilityResponse"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/WorkRecordService.Dtos.TaskResponsibilityResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/work-record-services/{id}/tasks/{taskId}": {
+            "post": {
+                "tags": [
+                    "WorkRecordService"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "taskId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "type": "object",
+                                "additionalProperties": {}
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "additionalProperties": {}
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "type": "object",
+                                "additionalProperties": {}
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "type": "object",
+                                "additionalProperties": {}
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/task-responsibilities": {
+            "get": {
+                "tags": [
+                    "WorkRecordService"
+                ],
+                "parameters": [
+                    {
+                        "name": "staffId",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/WorkRecordService.Dtos.CurrentTaskResponse"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/WorkRecordService.Dtos.CurrentTaskResponse"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/WorkRecordService.Dtos.CurrentTaskResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/work-record-services/{id}": {
+            "get": {
+                "tags": [
+                    "WorkRecordService"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/WorkRecordService.Dtos.WorkRecordServiceResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/WorkRecordService.Dtos.WorkRecordServiceResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/WorkRecordService.Dtos.WorkRecordServiceResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Conductor.Client.Models.SubWorkflowParams": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "taskToDomain": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "nullable": true
+                    },
+                    "version": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "workflowDefinition": {
+                        "$ref": "#/components/schemas/Conductor.Client.Models.WorkflowDef"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "Conductor.Client.Models.TaskDef": {
+                "type": "object",
+                "properties": {
+                    "retryLogic": {
+                        "$ref": "#/components/schemas/Conductor.Client.Models.TaskDef+RetryLogicEnum"
+                    },
+                    "timeoutPolicy": {
+                        "$ref": "#/components/schemas/Conductor.Client.Models.TaskDef+TimeoutPolicyEnum"
+                    },
+                    "backoffScaleFactor": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "concurrentExecLimit": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "createTime": {
+                        "type": "integer",
+                        "format": "int64",
+                        "nullable": true
+                    },
+                    "createdBy": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "executionNameSpace": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "inputKeys": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "nullable": true
+                    },
+                    "inputTemplate": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "nullable": true
+                        },
+                        "nullable": true
+                    },
+                    "isolationGroupId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "outputKeys": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "nullable": true
+                    },
+                    "ownerApp": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "ownerEmail": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "pollTimeoutSeconds": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "rateLimitFrequencyInSeconds": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "rateLimitPerFrequency": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "responseTimeoutSeconds": {
+                        "type": "integer",
+                        "format": "int64",
+                        "nullable": true
+                    },
+                    "retryCount": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "retryDelaySeconds": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "timeoutSeconds": {
+                        "type": "integer",
+                        "format": "int64",
+                        "nullable": true
+                    },
+                    "updateTime": {
+                        "type": "integer",
+                        "format": "int64",
+                        "nullable": true
+                    },
+                    "updatedBy": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "Conductor.Client.Models.TaskDef+RetryLogicEnum": {
+                "enum": [
+                    1,
+                    2,
+                    3
+                ],
+                "type": "integer",
+                "format": "int32"
+            },
+            "Conductor.Client.Models.TaskDef+TimeoutPolicyEnum": {
+                "enum": [
+                    1,
+                    2,
+                    3
+                ],
+                "type": "integer",
+                "format": "int32"
+            },
+            "Conductor.Client.Models.WorkflowDef": {
+                "type": "object",
+                "properties": {
+                    "timeoutPolicy": {
+                        "$ref": "#/components/schemas/Conductor.Client.Models.WorkflowDef+TimeoutPolicyEnum"
+                    },
+                    "createTime": {
+                        "type": "integer",
+                        "format": "int64",
+                        "nullable": true
+                    },
+                    "createdBy": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "failureWorkflow": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "inputParameters": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "nullable": true
+                    },
+                    "inputTemplate": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "nullable": true
+                        },
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "outputParameters": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "nullable": true
+                        },
+                        "nullable": true
+                    },
+                    "ownerApp": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "ownerEmail": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "restartable": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "schemaVersion": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "tasks": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Conductor.Client.Models.WorkflowTask"
+                        },
+                        "nullable": true
+                    },
+                    "timeoutSeconds": {
+                        "type": "integer",
+                        "format": "int64",
+                        "nullable": true
+                    },
+                    "updateTime": {
+                        "type": "integer",
+                        "format": "int64",
+                        "nullable": true
+                    },
+                    "updatedBy": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "variables": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "nullable": true
+                        },
+                        "nullable": true
+                    },
+                    "version": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "workflowStatusListenerEnabled": {
+                        "type": "boolean",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "Conductor.Client.Models.WorkflowDef+TimeoutPolicyEnum": {
+                "enum": [
+                    1,
+                    2
+                ],
+                "type": "integer",
+                "format": "int32"
+            },
+            "Conductor.Client.Models.WorkflowTask": {
+                "type": "object",
+                "properties": {
+                    "workflowTaskType": {
+                        "$ref": "#/components/schemas/Conductor.Client.Models.WorkflowTask+WorkflowTaskTypeEnum"
+                    },
+                    "asyncComplete": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "caseExpression": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "caseValueParam": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "decisionCases": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/Conductor.Client.Models.WorkflowTask"
+                            },
+                            "nullable": true
+                        },
+                        "nullable": true
+                    },
+                    "defaultCase": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Conductor.Client.Models.WorkflowTask"
+                        },
+                        "nullable": true
+                    },
+                    "defaultExclusiveJoinTask": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "nullable": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "dynamicForkJoinTasksParam": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "dynamicForkTasksInputParamName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "dynamicForkTasksParam": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "dynamicTaskNameParam": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "evaluatorType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "expression": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "forkTasks": {
+                        "type": "array",
+                        "items": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/Conductor.Client.Models.WorkflowTask"
+                            }
+                        },
+                        "nullable": true
+                    },
+                    "inputParameters": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "nullable": true
+                        },
+                        "nullable": true
+                    },
+                    "joinOn": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "nullable": true
+                    },
+                    "loopCondition": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "loopOver": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Conductor.Client.Models.WorkflowTask"
+                        },
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "optional": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "rateLimited": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "retryCount": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "scriptExpression": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sink": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "startDelay": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "subWorkflowParam": {
+                        "$ref": "#/components/schemas/Conductor.Client.Models.SubWorkflowParams"
+                    },
+                    "taskDefinition": {
+                        "$ref": "#/components/schemas/Conductor.Client.Models.TaskDef"
+                    },
+                    "taskReferenceName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "type": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "Conductor.Client.Models.WorkflowTask+WorkflowTaskTypeEnum": {
+                "enum": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22
+                ],
+                "type": "integer",
+                "format": "int32"
+            },
+            "WorkRecordService.Dtos.CurrentTaskResponse": {
+                "type": "object",
+                "properties": {
+                    "taskId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "taskName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "startDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "workRecordId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "workRecordName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "assigneeId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "engagementId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "currentMilestoneName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "practiceType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "workRecordType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "daysInCurrentMilestone": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "WorkRecordService.Dtos.MilestoneTaskDetail": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "completedAt": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "responsibleStaff": {
+                        "type": "integer",
+                        "format": "int64",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "WorkRecordService.Dtos.ServiceInformationRequest": {
+                "required": [
+                    "code",
+                    "name",
+                    "type",
+                    "value"
+                ],
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "name": {
+                        "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "type": {
+                        "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "value": {
+                        "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "WorkRecordService.Dtos.TaskResponse": {
+                "type": "object",
+                "properties": {
+                    "taskDefReferenceName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "isCompleted": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "seq": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "endTime": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "inputData": {
+                        "type": "object",
+                        "additionalProperties": {},
+                        "nullable": true
+                    },
+                    "outputData": {
+                        "type": "object",
+                        "additionalProperties": {},
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "WorkRecordService.Dtos.TaskResponsibilityRequest": {
+                "type": "object",
+                "properties": {
+                    "taskName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "assignTo": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "WorkRecordService.Dtos.TaskResponsibilityRequestV2": {
+                "type": "object",
+                "properties": {
+                    "taskReferenceName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "role": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "assignTo": {
+                        "type": "integer",
+                        "format": "int64",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "WorkRecordService.Dtos.TaskResponsibilityResponse": {
+                "type": "object",
+                "properties": {
+                    "taskName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "taskReferenceName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "assignTo": {
+                        "type": "integer",
+                        "format": "int64",
+                        "nullable": true
+                    },
+                    "milestoneName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "isCompleted": {
+                        "type": "boolean"
+                    },
+                    "applicableRoles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "WorkRecordService.Dtos.WorkRecordCreateRequest": {
+                "required": [
+                    "assigneeId",
+                    "countryAbbreviation",
+                    "engagementId",
+                    "name",
+                    "requestedOn",
+                    "responsibleOfficeId",
+                    "workRecordServices",
+                    "workRecordTypeId",
+                    "year"
+                ],
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "assigneeId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "countryAbbreviation": {
+                        "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "engagementId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "responsibleOfficeId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "workRecordTypeId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "year": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "workRecordServices": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/WorkRecordService.Dtos.WorkRecordServiceRequest"
+                        }
+                    },
+                    "requestedOn": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "createdBy": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "WorkRecordService.Dtos.WorkRecordResponse": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "countryAbbreviation": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "assigneeId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "engagementId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "responsibleOfficeId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "year": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/WorkRecordService.Entities.WorkRecordStatus"
+                    },
+                    "workRecordType": {
+                        "$ref": "#/components/schemas/WorkRecordService.Entities.WorkRecordType"
+                    },
+                    "requestedOn": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "workRecordServices": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/WorkRecordService.Dtos.WorkRecordServiceResponse"
+                        },
+                        "nullable": true
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "WorkRecordService.Dtos.WorkRecordServiceMilestone": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "completedAt": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "tasks": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/WorkRecordService.Dtos.MilestoneTaskDetail"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "WorkRecordService.Dtos.WorkRecordServiceRequest": {
+                "required": [
+                    "typeOfServiceId",
+                    "workflowId"
+                ],
+                "type": "object",
+                "properties": {
+                    "typeOfServiceId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "workflowId": {
+                        "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "serviceInformation": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/WorkRecordService.Dtos.ServiceInformationRequest"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "WorkRecordService.Dtos.WorkRecordServiceResponse": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "typeOfServiceId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "workflow": {
+                        "$ref": "#/components/schemas/WorkRecordService.Dtos.WorkflowResponse"
+                    },
+                    "currentTask": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "workflowInstanceId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "serviceInformation": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/WorkRecordService.Entities.WorkRecordServiceInformation"
+                        },
+                        "nullable": true
+                    },
+                    "milestones": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/WorkRecordService.Dtos.WorkRecordServiceMilestone"
+                        },
+                        "nullable": true
+                    },
+                    "workRecord": {
+                        "$ref": "#/components/schemas/WorkRecordService.Dtos.WorkRecordResponse"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "WorkRecordService.Dtos.WorkflowResponse": {
+                "type": "object",
+                "properties": {
+                    "correlationId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "createTime": {
+                        "type": "integer",
+                        "format": "int64",
+                        "nullable": true
+                    },
+                    "createdBy": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "endTime": {
+                        "type": "integer",
+                        "format": "int64",
+                        "nullable": true
+                    },
+                    "input": {
+                        "type": "object",
+                        "additionalProperties": {},
+                        "nullable": true
+                    },
+                    "lastRetriedTime": {
+                        "type": "integer",
+                        "format": "int64",
+                        "nullable": true
+                    },
+                    "output": {
+                        "type": "object",
+                        "additionalProperties": {},
+                        "nullable": true
+                    },
+                    "parentWorkflowId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "parentWorkflowTaskId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "reRunFromWorkflowId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "reasonForIncompletion": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "startTime": {
+                        "type": "integer",
+                        "format": "int64",
+                        "nullable": true
+                    },
+                    "tasks": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/WorkRecordService.Dtos.TaskResponse"
+                        },
+                        "nullable": true
+                    },
+                    "updateTime": {
+                        "type": "integer",
+                        "format": "int64",
+                        "nullable": true
+                    },
+                    "updatedBy": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "variables": {
+                        "type": "object",
+                        "additionalProperties": {},
+                        "nullable": true
+                    },
+                    "workflowId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "workflowName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "workflowVersion": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "workflowDefinition": {
+                        "$ref": "#/components/schemas/Conductor.Client.Models.WorkflowDef"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "WorkRecordService.Entities.LineOfService": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "WorkRecordService.Entities.WorkRecordServiceInformation": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "code": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "type": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "value": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "WorkRecordService.Entities.WorkRecordStatus": {
+                "enum": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "type": "integer",
+                "format": "int32"
+            },
+            "WorkRecordService.Entities.WorkRecordType": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "lineOfService": {
+                        "$ref": "#/components/schemas/WorkRecordService.Entities.LineOfService"
+                    }
+                },
+                "additionalProperties": false
+            }
+        }
+    }
+}
