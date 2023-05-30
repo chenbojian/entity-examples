@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: my-api
+  description: custom api 
+spec:
+  type: openapi
+  lifecycle: production
+  owner: bjchen
+  definition:
+    $openapi: https://api.apis.guru/v2/openapi.yaml
